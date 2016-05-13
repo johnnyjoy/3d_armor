@@ -19,8 +19,8 @@ local mats = {
 	lead="technic:lead_ingot"
 }
 if minetest.get_modpath("moreores") then
-	stats.tin = {name="Tin", armor=1.6, heal=0, use=750}
-	stats.silver = {name="Silver", armor=1.8, heal=6, use=650}
+	stats.tin = {name="Tin", armor=1.6, heal=0, use=750, radiation=37}
+	stats.silver = {name="Silver", armor=1.8, heal=6, use=650, radiation=53}
 	mats.tin = "moreores:tin_ingot"
 	mats.silver = "moreores:silver_ingot"
 end
