@@ -8,6 +8,7 @@ depends: default
 
 Common multi-layer player texturing api used by the modpack.
 
+Includes optional support for version 1.8 skins.
 
 [mod] Visible Player Armor [3d_armor]
 -------------------------------------

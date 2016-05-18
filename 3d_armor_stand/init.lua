@@ -61,7 +61,10 @@ local function update_entity(pos)
 					local groups = def.groups or {}
 					if groups["armor_"..element] then
 						local texture = def.texture or item:gsub("%:", "_")
-						table.insert(textures, texture..".png")
+						if not string.find(texture, ".png$") then
+							texture = texture..".png"
+						end
+						table.insert(textures, texture)
 					end
 				end
 			end
