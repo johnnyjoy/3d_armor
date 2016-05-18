@@ -13,13 +13,14 @@ if ARMOR_MATERIALS.wood then
 	minetest.register_tool("shields:shield_wood", {
 		description = "Wooden Shield",
 		inventory_image = "shields_inv_shield_wood.png",
-		groups = {armor_shield=5, armor_heal=0, armor_use=2000},
+		groups = {armor_shield=1, armor_heal=0, armor_use=2000},
+		armor_groups = {fleshy=5, cracky=5, snappy=3, choppy=2, crumbly=4},
 		wear = 0,
 	})
 	minetest.register_tool("shields:shield_enhanced_wood", {
 		description = "Enhanced Wood Shield",
 		inventory_image = "shields_inv_shield_enhanced_wood.png",
-		groups = {armor_shield=8, armor_heal=0, armor_use=1000},
+		armor_groups = {fleshy=10, cracky=10, snappy=8, choppy=3, crumbly=4},
 		wear = 0,
 	})
 	minetest.register_craft({
@@ -36,13 +37,15 @@ if ARMOR_MATERIALS.cactus then
 	minetest.register_tool("shields:shield_cactus", {
 		description = "Cactus Shield",
 		inventory_image = "shields_inv_shield_cactus.png",
-		groups = {armor_shield=5, armor_heal=0, armor_use=2000},
+		groups = {armor_shield=1, armor_heal=0, armor_use=2000},
+		armor_groups = {fleshy=5, cracky=4, snappy=2, choppy=2, crumbly=3},
 		wear = 0,
 	})
 	minetest.register_tool("shields:shield_enhanced_cactus", {
 		description = "Enhanced Cactus Shield",
 		inventory_image = "shields_inv_shield_enhanced_cactus.png",
-		groups = {armor_shield=8, armor_heal=0, armor_use=1000},
+		groups = {armor_shield=1, armor_heal=0, armor_use=1000},
+		armor_groups = {fleshy=10, cracky=8, snappy=3, choppy=3, crumbly=4},
 		wear = 0,
 	})
 	minetest.register_craft({
@@ -59,7 +62,8 @@ if ARMOR_MATERIALS.steel then
 	minetest.register_tool("shields:shield_steel", {
 		description = "Steel Shield",
 		inventory_image = "shields_inv_shield_steel.png",
-		groups = {armor_shield=10, armor_heal=0, armor_use=500},
+		groups = {armor_shield=1, armor_heal=0, armor_use=500},
+		armor_groups = {fleshy=10, cracky=10, snappy=8, choppy=8, crumbly=10},
 		wear = 0,
 	})
 end
@@ -68,7 +72,8 @@ if ARMOR_MATERIALS.bronze then
 	minetest.register_tool("shields:shield_bronze", {
 		description = "Bronze Shield",
 		inventory_image = "shields_inv_shield_bronze.png",
-		groups = {armor_shield=10, armor_heal=6, armor_use=250},
+		groups = {armor_shield=1, armor_heal=6, armor_use=250},
+		armor_groups = {fleshy=10, cracky=8, snappy=8, choppy=10, crumbly=10},
 		wear = 0,
 	})
 end
@@ -77,7 +82,8 @@ if ARMOR_MATERIALS.diamond then
 	minetest.register_tool("shields:shield_diamond", {
 		description = "Diamond Shield",
 		inventory_image = "shields_inv_shield_diamond.png",
-		groups = {armor_shield=15, armor_heal=12, armor_use=100},
+		groups = {armor_shield=1, armor_heal=12, armor_use=100},
+		armor_groups = {fleshy=15, cracky=10, snappy=15, choppy=15, crumbly=15},
 		wear = 0,
 	})
 end
@@ -86,7 +92,8 @@ if ARMOR_MATERIALS.gold then
 	minetest.register_tool("shields:shield_gold", {
 		description = "Gold Shield",
 		inventory_image = "shields_inv_shield_gold.png",
-		groups = {armor_shield=10, armor_heal=6, armor_use=250},
+		groups = {armor_shield=1, armor_heal=6, armor_use=250},
+		armor_groups = {fleshy=10, cracky=10, snappy=8, choppy=8, crumbly=8},
 		wear = 0,
 	})
 end
@@ -95,7 +102,8 @@ if ARMOR_MATERIALS.mithril then
 	minetest.register_tool("shields:shield_mithril", {
 		description = "Mithril Shield",
 		inventory_image = "shields_inv_shield_mithril.png",
-		groups = {armor_shield=15, armor_heal=12, armor_use=50},
+		groups = {armor_shield=1, armor_heal=12, armor_use=50},
+		armor_groups = {fleshy=15, cracky=10, snappy=15, choppy=15, crumbly=15},
 		wear = 0,
 	})
 end
@@ -104,7 +112,8 @@ if ARMOR_MATERIALS.crystal then
 	minetest.register_tool("shields:shield_crystal", {
 		description = "Crystal Shield",
 		inventory_image = "shields_inv_shield_crystal.png",
-		groups = {armor_shield=15, armor_heal=12, armor_use=50, armor_fire=1},
+		groups = {armor_shield=1, armor_heal=12, armor_use=50, armor_fire=1},
+		armor_groups = {fleshy=15, cracky=10, snappy=15, choppy=15, crumbly=15},
 		wear = 0,
 	})
 end
