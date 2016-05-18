@@ -232,12 +232,9 @@ minetest.register_on_joinplayer(function(player)
 		state = 0,
 		count = 0,
 		level = 0,
-		heal = 0,
 		jump = 1,
 		speed = 1,
 		gravity = 1,
-		fire = 0,
-		water = 0,
 		groups = {},
 	}
 	for _, attr in pairs(armor.attributes) do

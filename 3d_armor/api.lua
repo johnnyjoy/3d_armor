@@ -76,12 +76,10 @@ armor.set_player_armor = function(self, player)
 			count = count + 1
 			for _, attr in pairs(self.attributes) do
 				local value = def.groups["armor_"..attr] or 0
-				attributes[attr] = attributes[attr] or 0
 				attributes[attr] = attributes[attr] + value
 			end
 			for _, phys in pairs(self.physics) do
 				local value = def.groups["physics_"..phys] or 0
-				physics[phys] = physics[phys] or 0
 				physics[phys] = physics[phys] + value
 			end
 			local mat = string.match(item, "%:.+_(.+)$")
@@ -111,24 +109,29 @@ armor.set_player_armor = function(self, player)
 	end
 	attributes.heal = attributes.heal * ARMOR_HEAL_MULTIPLIER
 	attributes.radiation = attributes.radiation * ARMOR_RADIATION_MULTIPLIER
-	for _, attr in pairs(self.attributes) do
-		self.def[name][attr] = attributes[attr]
+	if self.def[name] then
+		for _, attr in pairs(self.attributes) do
+			self.def[name][attr] = attributes[attr]
+		end
+		for _, phys in pairs(self.physics) do
+			self.def[name][phys] = physics[phys]
+		end
+		if #textures > 0 then
+			texture = table.concat(textures, "^")
+		end
+		self.def[name].level = levels["fleshy"] or 0
+		self.def[name].state = state
+		self.def[name].count = count
+	else
+		minetest.log("warning", "3d_armor: armor.def is nil for player "..name)
 	end
-	for _, phys in pairs(self.physics) do
-		self.def[name][phys] = physics[phys]
-	end
-	if #textures > 0 then
-		texture = table.concat(textures, "^")
-	end
-	self.def[name].level = levels["fleshy"] or 0
-	self.def[name].state = state
-	self.def[name].count = count
 	player:set_armor_groups(groups)
 	player:set_physics_override(physics)
 	multiskin:set_player_textures(player, {armor=texture})
 	for _, func in pairs(armor.registered_callbacks.on_update) do
 		func(player)
 	end
+
 end
 
 armor.set_inventory_stack = function(self, player, i, stack)
