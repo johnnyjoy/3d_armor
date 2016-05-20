@@ -29,6 +29,14 @@ ARMOR_FIRE_NODES = {
 	{"default:torch",           1, 1},
 }
 
+-- Boilerplate to support localized strings if intllib mod is installed.
+local S
+if minetest.get_modpath("intllib") then
+    S = intllib.Getter()
+else
+    S = function(s) return s end
+end
+
 local modpath = minetest.get_modpath(ARMOR_MOD_NAME)
 local worldpath = minetest.get_worldpath()
 local input = io.open(modpath.."/armor.conf", "r")
@@ -126,7 +134,7 @@ minetest.register_on_player_hpchange(function(player, hp_change)
 					end
 					local desc = minetest.registered_items[item].description
 					if desc then
-						minetest.chat_send_player(name, "Your "..desc.." got destroyed!")
+						minetest.chat_send_player(name, S("Your ")..desc..S(" got destroyed!"))
 					end
 					armor:set_player_armor(player)
 					armor:update_inventory(player)
@@ -374,7 +382,7 @@ end)
 -- kill player when command issued
 minetest.register_chatcommand("kill", {
 	params = "<name>",
-	description = "Kills player instantly",
+	description = S("Kills player instantly"),
 	func = function(name, param)
 		local player = minetest.get_player_by_name(name)
 		if player then

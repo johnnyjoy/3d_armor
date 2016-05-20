@@ -1,3 +1,11 @@
+-- Boilerplate to support localized strings if intllib mod is installed.
+local S
+if minetest.get_modpath("intllib") then
+    S = intllib.Getter()
+else
+    S = function(s) return s end
+end
+
 local armor_stand_formspec = "size[8,7]" ..
 	default.gui_bg ..
 	default.gui_bg_img ..
@@ -102,7 +110,7 @@ local function has_locked_armor_stand_privilege(meta, player)
 end
 
 minetest.register_node("3d_armor_stand:armor_stand", {
-	description = "Armor stand",
+	description = S("Armor stand"),
 	drawtype = "mesh",
 	mesh = "3d_armor_stand.obj",
 	tiles = {"default_wood.png", "default_steel_block.png"},
@@ -118,7 +126,7 @@ minetest.register_node("3d_armor_stand:armor_stand", {
 	on_construct = function(pos)
 		local meta = minetest.get_meta(pos)
 		meta:set_string("formspec", armor_stand_formspec)
-		meta:set_string("infotext", "Armor Stand")
+		meta:set_string("infotext", S("Armor Stand"))
 		local inv = meta:get_inventory()
 		for _, element in pairs(elements) do
 			inv:set_size("armor_"..element, 1)
@@ -160,7 +168,7 @@ minetest.register_node("3d_armor_stand:armor_stand", {
 })
 
 minetest.register_node("3d_armor_stand:locked_armor_stand", {
-	description = "Locked Armor stand",
+	description = S("Locked Armor stand"),
 	drawtype = "mesh",
 	mesh = "3d_armor_stand.obj",
 	tiles = {"default_wood.png", "default_steel_block.png"},
@@ -176,7 +184,7 @@ minetest.register_node("3d_armor_stand:locked_armor_stand", {
 	on_construct = function(pos)
 		local meta = minetest.get_meta(pos)
 		meta:set_string("formspec", armor_stand_formspec)
-		meta:set_string("infotext", "Armor Stand")
+		meta:set_string("infotext", S("Armor Stand"))
 		meta:set_string("owner", "")
 		local inv = meta:get_inventory()
 		for _, element in pairs(elements) do
@@ -197,7 +205,7 @@ minetest.register_node("3d_armor_stand:locked_armor_stand", {
 		minetest.add_entity(pos, "3d_armor_stand:armor_entity")
 		local meta = minetest.get_meta(pos)
 		meta:set_string("owner", placer:get_player_name() or "")
-		meta:set_string("infotext", "Armor Stand (owned by " ..
+		meta:set_string("infotext", S("Armor Stand (owned by ") ..
 		meta:get_string("owner") .. ")")
 	end,
 	allow_metadata_inventory_put = function(pos, listname, index, stack, player)

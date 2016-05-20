@@ -1,15 +1,23 @@
+-- Boilerplate to support localized strings if intllib mod is installed.
+local S
+if minetest.get_modpath("intllib") then
+    S = intllib.Getter()
+else
+    S = function(s) return s end
+end
+
 local parts = {
-	helmet = {place="head", name="Helmet", level=5, radlevel=0.10},
-	chestplate = {place="torso", name="Chestplate", level=8, radlevel=0.35},
-	leggings = {place="legs", name="Leggings", level=7, radlevel=0.15},
-	boots = {place="feet", name="Boots", level=4, radlevel=0.10},
+	helmet = {place="head", name=S("Helmet"), level=5, radlevel=0.10},
+	chestplate = {place="torso", name=S("Chestplate"), level=8, radlevel=0.35},
+	leggings = {place="legs", name=S("Leggings"), level=7, radlevel=0.15},
+	boots = {place="feet", name=S("Boots"), level=4, radlevel=0.10},
 }
 local stats = {
-	brass = {name="Brass", armor=1.8, heal=0, use=650, radiation=43},
-	cast = {name="Cast Iron", armor=2.5, heal=8, use=200, radiation=40},
-	carbon = {name="Carbon Steel", armor=2.7, heal=10, use=100, radiation=40},
-	stainless = {name="Stainless Steel", armor=2.7, heal=10, use=75, radiation=40},
-	lead = {name="Lead", armor=1.6, heal=0, use=500, radiation=88},
+	brass = {name=S("Brass"), armor=1.8, heal=0, use=650, radiation=43},
+	cast = {name=S("Cast Iron"), armor=2.5, heal=8, use=200, radiation=40},
+	carbon = {name=S("Carbon Steel"), armor=2.7, heal=10, use=100, radiation=40},
+	stainless = {name=S("Stainless Steel"), armor=2.7, heal=10, use=75, radiation=40},
+	lead = {name=S("Lead"), armor=1.6, heal=0, use=500, radiation=88},
 }
 local mats = {
 	brass="technic:brass_ingot",
