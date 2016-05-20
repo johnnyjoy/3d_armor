@@ -30,11 +30,9 @@ ARMOR_FIRE_NODES = {
 }
 
 -- Boilerplate to support localized strings if intllib mod is installed.
-local S
+local S = function(s) return s end
 if minetest.get_modpath("intllib") then
     S = intllib.Getter()
-else
-    S = function(s) return s end
 end
 
 local modpath = minetest.get_modpath(ARMOR_MOD_NAME)
