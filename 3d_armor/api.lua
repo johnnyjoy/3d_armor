@@ -92,6 +92,7 @@ armor.set_player_armor = function(self, player)
 			end
 		end
 	end
+	self.def[name] = {groups={}}
 	for group, level in pairs(levels) do
 		if level > 0 then
 			if minetest.get_modpath("shields") then
@@ -109,22 +110,18 @@ armor.set_player_armor = function(self, player)
 	end
 	attributes.heal = attributes.heal * ARMOR_HEAL_MULTIPLIER
 	attributes.radiation = attributes.radiation * ARMOR_RADIATION_MULTIPLIER
-	if self.def[name] then
-		for _, attr in pairs(self.attributes) do
-			self.def[name][attr] = attributes[attr]
-		end
-		for _, phys in pairs(self.physics) do
-			self.def[name][phys] = physics[phys]
-		end
-		if #textures > 0 then
-			texture = table.concat(textures, "^")
-		end
-		self.def[name].level = levels["fleshy"] or 0
-		self.def[name].state = state
-		self.def[name].count = count
-	else
-		minetest.log("warning", "3d_armor: armor.def is nil for player "..name)
+	for _, attr in pairs(self.attributes) do
+		self.def[name][attr] = attributes[attr]
 	end
+	for _, phys in pairs(self.physics) do
+		self.def[name][phys] = physics[phys]
+	end
+	if #textures > 0 then
+		texture = table.concat(textures, "^")
+	end
+	self.def[name].level = levels["fleshy"] or 0
+	self.def[name].state = state
+	self.def[name].count = count
 	player:set_armor_groups(groups)
 	player:set_physics_override(physics)
 	multiskin:set_player_textures(player, {armor=texture})
