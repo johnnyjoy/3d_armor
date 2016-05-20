@@ -132,7 +132,8 @@ minetest.register_on_player_hpchange(function(player, hp_change)
 					end
 					local desc = minetest.registered_items[item].description
 					if desc then
-						minetest.chat_send_player(name, S("Your ")..desc..S(" got destroyed!"))
+						local msg = S("Your").." "..desc.." "..S("got destroyed").."!")
+						minetest.chat_send_player(name, msg)
 					end
 					armor:set_player_armor(player)
 					armor:update_inventory(player)

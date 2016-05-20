@@ -20,7 +20,7 @@ Note that it is currently not possible to mix formats.
 API
 ---
 
-Allows other mods can read/write individual player model texture layers.
+Allows other mods to read/write individual player model texture layers.
 
 local name = player:get_player_name()
 local skin = multiskin[name].skin
