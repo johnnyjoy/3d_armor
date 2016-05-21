@@ -32,7 +32,7 @@ if minetest.get_modpath("moreores") then
 end
 
 if minetest.get_modpath("shields") then
-	parts.shield = {place="shield", name="Helmet", level=5, radlevel=0.10}
+	parts.shield = {place="shield", name=S("Shield"), level=5, radlevel=0.10}
 end
 
 for i, j in pairs(parts) do
