@@ -183,7 +183,7 @@ armor.get_valid_player = function(self, player, msg)
 end
 
 armor.update_inventory = function(self, player)
-	local name = armor:get_valid_player(player, "[set_player_armor]")
+	local name = armor:get_valid_player(player, "[update_inventory]")
 	if not name or self.inv_mod == "inventory_enhanced" then
 		return
 	end
