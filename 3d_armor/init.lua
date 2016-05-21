@@ -252,7 +252,8 @@ minetest.register_on_joinplayer(function(player)
 	end
 
 	-- Legacy preview support, may be removed from future versions
-	armor.textures[name] = {preview="3d_armor_trans.png"}
+	armor.textures[name].skin = multiskin[name].skin
+	armor.textures[name].preview = "3d_armor_trans.png"
 
 	for i=1, ARMOR_INIT_TIMES do
 		minetest.after(ARMOR_INIT_DELAY * i, function(player)

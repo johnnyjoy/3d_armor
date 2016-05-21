@@ -1,6 +1,8 @@
 Modpack - 3d Armor [0.5.0]
 ==========================
 
+Minetest Version: 0.4.14
+
 [mod] Multi Skins [multiskin]
 -----------------------------
 
@@ -8,12 +10,18 @@ depends: default
 
 Common multi-layer player texturing api used by the modpack.
 
+Supported skin changing mods: 
+
+	player_textures (PilzAdam)
+	simple_skins (Tenplus1)
+	skins (Zeg9)
+	u_skins (SmallJoker)
+	wardrobe (prestidigitator)
+
 Includes optional support for version 1.8 skins.
 
 [mod] Visible Player Armor [3d_armor]
 -------------------------------------
-
-Minetest Version: 0.4.14
 
 Game: minetest_game and many derivatives
 

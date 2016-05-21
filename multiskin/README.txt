@@ -11,6 +11,7 @@ Supported skin changing mods:
 	simple_skins (Tenplus1)
 	skins (Zeg9)
 	u_skins (SmallJoker)
+	wardrobe (prestidigitator)
 
 Optional support for format 1.8 skins.
 
