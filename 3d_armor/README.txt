@@ -111,7 +111,7 @@ minetest.register_tool("your_mod_name:speed_boots", {
 	description = "Speed Boots",
 	inventory_image = "your_mod_name_speed_boots_inv.png",
 	texture = "your_mod_name_speed_boots.png",
-	groups = {armor_feet=1, physics_speed=0.5, armor_use=2000},
+	groups = {armor_feet=10, physics_speed=0.5, armor_use=2000},
 	armor_groups = {fleshy=10, cracky=10, snappy=10, choppy=10, crumbly=10}
 	on_destroy = function(player, item_name)
 		minetest.sound_play("your_mod_name_break_sound", {

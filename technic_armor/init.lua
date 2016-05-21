@@ -37,15 +37,16 @@ end
 
 for i, j in pairs(parts) do
 	for k, v in pairs(stats) do
+		local level = math.floor(j.level * v.armor)
 		local armor_groups = {}
 		local groups = {
 			armor_heal = v.heal,
 			armor_use = v.use,
 			armor_radiation = 1,
 		}
-		groups["armor_"..j.place] = 1
+		groups["armor_"..j.place] = level
 		for _, group in pairs(armor.groups) do
-			armor_groups[group] = math.floor(j.level * v.armor)
+			armor_groups[group] = level
 		end
 		minetest.register_tool("technic_armor:"..i.."_"..k, {
 			description = v.name.." "..j.name,
