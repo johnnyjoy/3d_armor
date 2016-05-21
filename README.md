@@ -3,10 +3,12 @@ Modpack - 3d Armor [0.5.0]
 
 Minetest Version: 0.4.14
 
+Games: Minetest Game and default mod compatible sub-games.
+
 [mod] Multi Skins [multiskin]
 -----------------------------
 
-depends: default
+Depends: default
 
 Common multi-layer player texturing api used by the modpack.
 
@@ -22,8 +24,6 @@ Includes optional support for version 1.8 skins.
 
 [mod] Visible Player Armor [3d_armor]
 -------------------------------------
-
-Game: minetest_game and many derivatives
 
 Depends: multiskin
 
