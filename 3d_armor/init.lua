@@ -132,7 +132,7 @@ minetest.register_on_player_hpchange(function(player, hp_change)
 					end
 					local desc = minetest.registered_items[item].description
 					if desc then
-						local msg = S("Your").." "..desc.." "..S("got destroyed").."!")
+						local msg = S("Your").." "..desc.." "..S("got destroyed").."!"
 						minetest.chat_send_player(name, msg)
 					end
 					armor:set_player_armor(player)
@@ -252,8 +252,10 @@ minetest.register_on_joinplayer(function(player)
 	end
 
 	-- Legacy preview support, may be removed from future versions
-	armor.textures[name].skin = multiskin[name].skin
-	armor.textures[name].preview = "3d_armor_trans.png"
+	armor.textures[name] = {
+		skin = multiskin[name].skin,
+		preview = "3d_armor_trans.png",
+	}
 
 	for i=1, ARMOR_INIT_TIMES do
 		minetest.after(ARMOR_INIT_DELAY * i, function(player)
