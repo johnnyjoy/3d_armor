@@ -24,7 +24,7 @@ API
 Allows other mods to read/write individual player model texture layers.
 
 local name = player:get_player_name()
-local skin = multiskin[name].skin
+local skin = multiskin.layers[name].skin
 
 multiskin:set_player_textures(player, {skin="character.png"})
 

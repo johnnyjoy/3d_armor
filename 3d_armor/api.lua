@@ -242,7 +242,7 @@ end
 -- Legacy support
 
 armor.update_player_visuals = function(self, player)
-	multiskin[name].skin = armor.textures[name].skin
+	multiskin.layers[name].skin = armor.textures[name].skin
 	multiskin:update_player_visuals(player)
 end
 

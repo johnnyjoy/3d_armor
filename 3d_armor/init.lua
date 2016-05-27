@@ -253,7 +253,7 @@ minetest.register_on_joinplayer(function(player)
 
 	-- Legacy preview support, may be removed from future versions
 	armor.textures[name] = {
-		skin = multiskin[name].skin,
+		skin = multiskin:get_player_skin(name),
 		preview = "3d_armor_trans.png",
 	}
 
