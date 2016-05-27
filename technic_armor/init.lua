@@ -1,7 +1,7 @@
 -- Boilerplate to support localized strings if intllib mod is installed.
 local S = function(s) return s end
 if minetest.get_modpath("intllib") then
-    S = intllib.Getter()
+	S = intllib.Getter()
 end
 
 local parts = {

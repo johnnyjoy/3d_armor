@@ -242,10 +242,9 @@ end
 -- Legacy support
 
 armor.update_player_visuals = function(self, player)
-	local name = player:get_player_name()
-	if name then
-		multiskin.layers[name].skin = armor.textures[name].skin
-		multiskin:update_player_visuals(player)
+	local textures = armor.textures[name] or {}
+	if textures.skin then
+		multiskin:set_player_textures(player, {skin=textures.skin})
 	end
 end
 
