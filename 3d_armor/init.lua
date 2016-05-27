@@ -267,6 +267,14 @@ minetest.register_on_joinplayer(function(player)
 	end
 end)
 
+minetest.register_on_leaveplayer(function(player)
+	local name = player:get_player_name()
+	if name then
+		armor.def[name] = nil
+		armor.textures[name] = nil
+	end
+end)
+
 if ARMOR_DROP == true or ARMOR_DESTROY == true then
 	minetest.register_on_dieplayer(function(player)
 		local name, inv, pos = armor:get_valid_player(player, "[on_dieplayer]")
