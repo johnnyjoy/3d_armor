@@ -5,22 +5,25 @@ Depends: default
 
 Recommends: inventory_plus or unified_inventory (use only one)
 
-Adds craftable armor that is visible to other players. Each armor item worn contributes to
-a player's armor group level making them less vulnerable to weapons.
+Adds craftable armor that is visible to other players. Each armor item
+contributes to the player's armor level making them less vulnerable to weapons.
+Overall level is boosted by 10% when wearing a full matching set made from the
+same base material.
 
-Armor takes damage when a player is hurt but also offers a percentage chance of healing.
-Overall level is boosted by 10% when wearing a full matching set.
+Armor takes damage when a player is hurt but can offer a stackable chance of
+restoring the lost health points.
 
-Fire protection added by TenPlus1 when using crystal armor if Ethereal mod active, level 1
-protects against torches, level 2 for crystal spike, level 3 for fire, level 5 for lava.
+Fire protection added by TenPlus1 when using  if Ethereal mod active,
+level 1 crystal armor protects against torches, level 2 for crystal spike,
+level 3 for fire, level 5 for lava.
 
 Configuration
 -------------
 
-Armor can be configured by adding a file called armor.conf in 3d_armor mod and/or world directory.
-see armor.conf.example for all available options.
+Armor can be configured by adding a file called armor.conf in the 3d_armor mod
+and/or world directory. see armor.conf.example for all available options.
 
-Note: worldpath config settings override any settings made in the mod's directory.
+Note: worldpath config settings override settings made in the mod's directory.
 
 Crafting
 --------
@@ -99,8 +102,8 @@ Boots:
 [3d_armor:boots_mithril] X = [moreores:mithril_ingot] *
 [3d_armor:boots_crystal] X = [ethereal:crystal_ingot] **
 
- * Requires moreores mod by Calinou - https://forum.minetest.net/viewtopic.php?id=549
-** Requires ethereal mod by Chinchow & TenPlus1 - https://github.com/tenplus1/ethereal
+ * Requires moreores mod by Calinou
+** Requires ethereal mod by Chinchow & TenPlus1
 
 API
 ---
