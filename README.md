@@ -26,14 +26,11 @@ Includes optional support for version 1.8 skins.
 -------------------------------------
 
 Adds craftable armor that is visible to other players. Each armor item worn contributes to
-a player's armor group level making them less vulnerable to attack.
+a player's armor group level making them less vulnerable to damage.
 
 **Depends:** multiskin
 
 **Recommends:** inventory_plus or unified_inventory (use only one)
-
-Compatible with player skins [skins] by Zeg9 and Player Textures [player_textures] by PilzAdam
-and [simple_skins] by TenPlus1.
 
 [mod] Visible Wielded Items [wieldview]
 ---------------------------------------
@@ -65,7 +62,7 @@ Also features a built-in oxygen supply for underwater breathing.
 
 **Depends:** 3d_armor, technic
 
-*Requires patched version of [minetest-technic](https://github.com/minetest-technic/technic/pull/275) to have any effect.
+*Radiation protection requires patched version of [minetest-technic](https://github.com/minetest-technic/technic/pull/275) to take effect.
 
 [mod] 3d Armor Stand [3d_armor_stand]
 -------------------------------------
