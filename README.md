@@ -9,6 +9,7 @@ Modpack - 3d Armor [0.5.0]
 -----------------------------
 
 Common multi-layer player texturing api used by the modpack.
+Includes optional support for version 1.8 skins.
 
 **Depends:** default
 
@@ -20,13 +21,10 @@ Supported skin changing mods:
 	u_skins (SmallJoker)
 	wardrobe (prestidigitator)
 
-Includes optional support for version 1.8 skins.
-
 [mod] Visible Player Armor [3d_armor]
 -------------------------------------
 
-Adds craftable armor that is visible to other players. Each armor item worn contributes to
-a player's armor group level making them less vulnerable to damage.
+Adds craftable armor that is visible to other players.
 
 **Depends:** multiskin
 
