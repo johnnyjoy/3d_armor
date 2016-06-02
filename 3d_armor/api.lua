@@ -17,7 +17,7 @@ armor = {
 		"listring[current_player;main]"..
 		"listring[current_player;craft]",
 	version = "0.5.0",
-	def = {state=0, count=0},
+	def = {},
 	registered_callbacks = {
 		on_update = {},
 		on_equip = {},

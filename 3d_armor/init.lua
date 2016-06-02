@@ -57,6 +57,25 @@ end
 dofile(minetest.get_modpath(ARMOR_MOD_NAME).."/api.lua")
 dofile(minetest.get_modpath(ARMOR_MOD_NAME).."/armor.lua")
 
+local function get_init_def()
+	local def = {
+		state = 0,
+		count = 0,
+		level = 0,
+		groups = {},
+	}
+	for _, phys in pairs(armor.physics) do
+		def[phys] = 1
+	end
+	for _, attr in pairs(armor.attributes) do
+		def[attr] = 0
+	end
+	for _, group in pairs(armor.groups) do
+		def.groups[group] = 0
+	end
+	return def
+end
+
 if minetest.get_modpath("inventory_plus") then
 	armor.inv_mod = "inventory_plus"
 	armor.formspec = "size[8,8.5]"..
@@ -85,6 +104,7 @@ elseif minetest.get_modpath("unified_inventory") then
 		get_formspec = function(player, perplayer_formspec)
 			local fy = perplayer_formspec.formspec_y
 			local name = player:get_player_name()
+			armor.def[name] = armor.def[name] or get_init_def()
 			local formspec = "background[0.06,"..fy..
 				";7.92,7.52;3d_armor_ui_form.png]"..
 				"label[0,0;Armor]"..
@@ -235,21 +255,7 @@ minetest.register_on_joinplayer(function(player)
 		local stack = player_inv:get_stack("armor", i)
 		armor_inv:set_stack("armor", i, stack)
 	end	
-	armor.def[name] = {
-		state = 0,
-		count = 0,
-		level = 0,
-		jump = 1,
-		speed = 1,
-		gravity = 1,
-		groups = {},
-	}
-	for _, attr in pairs(armor.attributes) do
-		armor.def[name][attr] = 0
-	end
-	for _, group in pairs(armor.groups) do
-		armor.def[name].groups[group] = 0
-	end
+	armor.def[name] = get_init_def()
 
 	-- Legacy preview support, may be removed from future versions
 	armor.textures[name] = {
