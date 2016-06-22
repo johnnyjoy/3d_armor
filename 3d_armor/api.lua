@@ -178,6 +178,9 @@ armor.get_valid_player = function(self, player, msg)
 	elseif not inv then
 		minetest.log("warning", "3d_armor: Player inventory is nil "..msg)
 		return
+	elseif not minetest.get_inventory({type="detached", name=name.."_armor"}) then
+		minetest.log("warning", "3d_armor: Detached armor inventory is nil "..msg)
+		return
 	end
 	return name, inv, pos
 end
