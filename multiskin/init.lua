@@ -31,16 +31,18 @@ function multiskin:get_player_skin(name)
 				return skin
 			end
 		elseif minetest.get_modpath("skins") then
-			if skins.skins[name] and skins.get_type(skin) == skins.type.MODEL then
-				return skins.skins[name]..".png"
+			local skin = skins.skins[name]
+			if skin and skins.get_type(skin) == skins.type.MODEL then
+				return skin..".png"
 			end
 		elseif minetest.get_modpath("simple_skins") then
 			if skins.skins[name] then
 				return skins.skins[name]..".png"
 			end
 		elseif minetest.get_modpath("u_skins") then
-			if u_skins.u_skins[name] and u_skins.get_type(skin) == u_skins.type.MODEL then
-				return u_skins.u_skins[name]..".png"
+			local skin = u_skins.u_skins[name]
+			if skin and u_skins.get_type(skin) == u_skins.type.MODEL then
+				return skin..".png"
 			end
 		elseif minetest.get_modpath("wardrobe") then
 			if wardrobe.playerSkins then
