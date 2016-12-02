@@ -245,7 +245,7 @@ minetest.register_on_joinplayer(function(player)
 		allow_move = function(inv)
 			return 1
 		end,
-	})
+	}, name)
 	if armor.inv_mod == "inventory_plus" then
 		inventory_plus.register_button(player,"armor", "Armor")
 	end
