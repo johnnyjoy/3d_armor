@@ -1,13 +1,13 @@
-ARMOR_INIT_DELAY		= 1
-ARMOR_INIT_TIMES		= 1
-ARMOR_BONES_DELAY		= 1
-ARMOR_UPDATE_TIME		= 1
-ARMOR_DROP				= minetest.get_modpath("bones") ~= nil
-ARMOR_DESTROY			= false
-ARMOR_FIRE_PROTECT		= minetest.get_modpath("ethereal") ~= nil
-ARMOR_WATER_PROTECT		= minetest.get_modpath("ethereal") ~= nil
-ARMOR_LEVEL_MULTIPLIER	= 1
-ARMOR_HEAL_MULTIPLIER	= 1
+ARMOR_INIT_DELAY			= 1
+ARMOR_INIT_TIMES			= 1
+ARMOR_BONES_DELAY			= 1
+ARMOR_UPDATE_TIME			= 1
+ARMOR_DROP					= minetest.get_modpath("bones") ~= nil
+ARMOR_DESTROY				= false
+ARMOR_FIRE_PROTECT			= minetest.get_modpath("ethereal") ~= nil
+ARMOR_LEVEL_MULTIPLIER		= 1
+ARMOR_HEAL_MULTIPLIER		= 1
+ARMOR_RADIATION_MULTIPLIER	= 1
 
 ARMOR_MATERIALS = {
 	wood	= "group:wood",
@@ -88,6 +88,7 @@ if minetest.get_modpath("inventory_plus") then
 		default.gui_bg_img..
 		default.gui_slots..
 		default.get_hotbar_bg(0,4.25)..
+		"list[detached:player_name_armor;armor;0,.5;2,3;]"..
 		"image[2.5,0;2,4;armor_preview]"..
 		"label[5,1;Level: armor_level]"..
 		"label[5,1.5;Heal:  armor_heal]"..
@@ -481,7 +482,6 @@ minetest.register_on_joinplayer(function(player)
 		armor_inv:set_stack("armor", i, stack)
 	end	
 
-	armor.player_hp[name] = 0
 	armor.def[name] = {
 		state		= 0,
 		count		= 0,
@@ -569,7 +569,7 @@ if ARMOR_DROP == true or ARMOR_DESTROY == true then
 		if inv_mod == "unified_inventory" then
 			unified_inventory.set_inventory_formspec(player, "craft")
 		elseif inv_mod == "inventory_plus" then
-			local formspec = inventory_plus.get_formspec(player,"main")
+			local formspec = inventory_plus.get_formspec(player, "main")
 			inventory_plus.set_inventory_formspec(player, formspec)
 		else
 			armor:update_inventory(player)
